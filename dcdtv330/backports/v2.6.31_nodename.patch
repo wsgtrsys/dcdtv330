@@ -1,0 +1,44 @@
+---
+ drivers/media/dvb/dvb-core/dvbdev.c |    4 ++--
+ drivers/media/rc/rc-main.c          |    4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+--- linux.orig/drivers/media/dvb/dvb-core/dvbdev.c
++++ linux/drivers/media/dvb/dvb-core/dvbdev.c
+@@ -450,7 +450,7 @@ static int dvb_uevent(struct device *dev
+ 	return 0;
+ }
+ 
+-static char *dvb_devnode(struct device *dev, mode_t *mode)
++static char *dvb_nodename(struct device *dev)
+ {
+ 	struct dvb_device *dvbdev = dev_get_drvdata(dev);
+ 
+@@ -481,7 +481,7 @@ static int __init init_dvbdev(void)
+ 		goto error;
+ 	}
+ 	dvb_class->dev_uevent = dvb_uevent;
+-	dvb_class->devnode = dvb_devnode;
++	dvb_class->nodename = dvb_nodename;
+ 	return 0;
+ 
+ error:
+--- linux.orig/drivers/media/rc/rc-main.c
++++ linux/drivers/media/rc/rc-main.c
+@@ -674,14 +674,14 @@ static void ir_close(struct input_dev *i
+ }
+ 
+ /* class for /sys/class/rc */
+-static char *ir_devnode(struct device *dev, mode_t *mode)
++static char *ir_nodename(struct device *dev)
+ {
+ 	return kasprintf(GFP_KERNEL, "rc/%s", dev_name(dev));
+ }
+ 
+ static struct class ir_input_class = {
+ 	.name		= "rc",
+-	.devnode	= ir_devnode,
++	.nodename	= ir_nodename,
+ };
+ 
+ static struct {

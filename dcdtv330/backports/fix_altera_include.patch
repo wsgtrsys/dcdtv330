@@ -1,0 +1,6 @@
+diff --git a/drivers/media/video/cx23885/cx23885-cards.c b/drivers/media/video/cx23885/cx23885-cards.c
+--- a/drivers/media/video/cx23885/cx23885-cards.c
++++ b/drivers/media/video/cx23885/cx23885-cards.c
+@@ -29,1 +29,1 @@
+-#include "../../../staging/altera-stapl/altera.h"
++#include "altera.h"

@@ -1,0 +1,34 @@
+ drivers/media/dvb/dvb-usb/dvb-usb-remote.c |    4 ++--
+ drivers/media/rc/rc-main.c                 |    4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/media/dvb/dvb-usb/dvb-usb-remote.c b/drivers/media/dvb/dvb-usb/dvb-usb-remote.c
+index 41bacff..a031975 100644
+--- a/drivers/media/dvb/dvb-usb/dvb-usb-remote.c
++++ b/drivers/media/dvb/dvb-usb/dvb-usb-remote.c
+@@ -198,8 +198,8 @@ static int legacy_dvb_usb_remote_init(struct dvb_usb_device *d)
+ 	d->input_dev = input_dev;
+ 	d->rc_dev = NULL;
+ 
+-	input_dev->getkeycode = legacy_dvb_usb_getkeycode;
+-	input_dev->setkeycode = legacy_dvb_usb_setkeycode;
++	input_dev->getkeycode_new = legacy_dvb_usb_getkeycode;
++	input_dev->setkeycode_new = legacy_dvb_usb_setkeycode;
+ 
+ 	/* set the bits for the keys */
+ 	deb_rc("key map size: %d\n", d->props.rc.legacy.rc_map_size);
+diff --git a/drivers/media/rc/rc-main.c b/drivers/media/rc/rc-main.c
+index 0497e06..1202f0d 100644
+--- a/drivers/media/rc/rc-main.c
++++ b/drivers/media/rc/rc-main.c
+@@ -989,8 +989,8 @@ struct rc_dev *rc_allocate_device(void)
+ 		return NULL;
+ 	}
+ 
+-	dev->input_dev->getkeycode = ir_getkeycode;
+-	dev->input_dev->setkeycode = ir_setkeycode;
++	dev->input_dev->getkeycode_new = ir_getkeycode;
++	dev->input_dev->setkeycode_new = ir_setkeycode;
+ 	input_set_drvdata(dev->input_dev, dev);
+ 
+ 	spin_lock_init(&dev->rc_map.lock);

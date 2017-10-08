@@ -1,0 +1,25 @@
+This is an experimental build system for media drivers.
+All files on this tree are covered by GPLv2, as stated at COPYING file.
+
+Usage:
+
+cd linux
+make tar DIR=<some dir with media -git tree>
+make untar
+
+After that, it will work like the old -hg build system.
+
+Notes:
+
+1) There's not much compat stuff here. So, it will likely not work with
+   legacy kernels. It will probably be fine to use it with the latest stable
+   kernel.
+
+2) For now, this is just an experience. I don't intend to maintain any
+   out-of-tree building system, due to my lack of time. If this interests
+   someone, feel free to candidate to maintain it.
+
+3) It shouldn't be hard to support legacy kernels. All that it is needed is
+   to have patches adding backports that don't fit at compat.h, and let the
+   building system to apply them, depending on the kernel version.
+

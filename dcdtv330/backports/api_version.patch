@@ -1,0 +1,36 @@
+diff --git a/drivers/media/video/et61x251/et61x251_core.c b/drivers/media/video/et61x251/et61x251_core.c
+--- a/drivers/media/video/et61x251/et61x251_core.c
++++ b/drivers/media/video/et61x251/et61x251_core.c
+@@ -1582,1 +1582,1 @@ et61x251_vidioc_querycap(struct et61x251
+-		.version = LINUX_VERSION_CODE,
++		.version = V4L2_VERSION,
+diff --git a/drivers/media/video/pvrusb2/pvrusb2-v4l2.c b/drivers/media/video/pvrusb2/pvrusb2-v4l2.c
+--- a/drivers/media/video/pvrusb2/pvrusb2-v4l2.c
++++ b/drivers/media/video/pvrusb2/pvrusb2-v4l2.c
+@@ -94,1 +94,1 @@ static struct v4l2_capability pvr_capabi
+-	.version        = LINUX_VERSION_CODE,
++	.version        = V4L2_VERSION,
+diff --git a/drivers/media/video/sn9c102/sn9c102_core.c b/drivers/media/video/sn9c102/sn9c102_core.c
+--- a/drivers/media/video/sn9c102/sn9c102_core.c
++++ b/drivers/media/video/sn9c102/sn9c102_core.c
+@@ -2161,1 +2161,1 @@ sn9c102_vidioc_querycap(struct sn9c102_d
+-		.version = LINUX_VERSION_CODE,
++		.version = V4L2_VERSION,
+diff --git a/drivers/media/video/uvc/uvc_driver.c b/drivers/media/video/uvc/uvc_driver.c
+--- a/drivers/media/video/uvc/uvc_driver.c
++++ b/drivers/media/video/uvc/uvc_driver.c
+@@ -1861,1 +1861,1 @@ static int uvc_probe(struct usb_interfac
+-	dev->mdev.driver_version = LINUX_VERSION_CODE;
++	dev->mdev.driver_version = V4L2_VERSION;
+diff --git a/drivers/media/video/uvc/uvc_v4l2.c b/drivers/media/video/uvc/uvc_v4l2.c
+--- a/drivers/media/video/uvc/uvc_v4l2.c
++++ b/drivers/media/video/uvc/uvc_v4l2.c
+@@ -574,1 +574,1 @@ static long uvc_v4l2_do_ioctl(struct fil
+-		cap->version = LINUX_VERSION_CODE;
++		cap->version = V4L2_VERSION;
+diff --git a/drivers/media/video/v4l2-ioctl.c b/drivers/media/video/v4l2-ioctl.c
+--- a/drivers/media/video/v4l2-ioctl.c
++++ b/drivers/media/video/v4l2-ioctl.c
+@@ -609,1 +609,1 @@ static long __video_do_ioctl(struct file
+-		cap->version = LINUX_VERSION_CODE;
++		cap->version = V4L2_VERSION;
