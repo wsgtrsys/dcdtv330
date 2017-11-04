@@ -1,0 +1,1 @@
+cmd_/root/devel/dcdtv330/gtr/dvb-usb/dcdtv330.ko := /root/devel/android-ndk-r8e/toolchains/arm-linux-androideabi-4.7/prebuilt/linux-x86_64/bin/arm-linux-androideabi-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /root/devel/dcdtv330/gtr/dvb-usb/dcdtv330.ko /root/devel/dcdtv330/gtr/dvb-usb/dcdtv330.o /root/devel/dcdtv330/gtr/dvb-usb/dcdtv330.mod.o ;  true
