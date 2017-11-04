@@ -1,8 +1,9 @@
 # dcdtv330
 dcdtv 330/350 linux driver for kernel 3.x/4.x
+州数码DCDTV330／350高清电视棒 支持DMB-TH
 
-
-Front: http://www.hkepc.com/forum/viewthread.php?fid=116&tid=1172953
+https://www.linuxtv.org/wiki/index.php/Digital_China_DCDTV330
+http://www.hkepc.com/forum/viewthread.php?fid=116&tid=1172953
 
 Front:
         ------------------------------------------
