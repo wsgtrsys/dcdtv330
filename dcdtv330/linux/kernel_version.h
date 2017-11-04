@@ -1,1 +1,0 @@
-#define V4L2_VERSION 196608
