@@ -1,6 +1,9 @@
 obj-y := dvb-usb/
 
-KDIR=/root/raspberrypi/linux/
+KVER ?= $(shell uname -r)  
+KDIR := /lib/modules/$(KVER)/build
+
+#KDIR=/root/raspberrypi/linux/
 #KDIR=/root/devel/HiSTBAndroidV600R002C00SPC030/device/hisilicon/bigfish/sdk/source/kernel/linux-3.18.y
 
 all:
