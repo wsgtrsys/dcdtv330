@@ -1,8 +1,12 @@
+#include <linux/version.h>
 #include <linux/module.h>
 #include <linux/delay.h>
 #include <linux/i2c.h>
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
 #include "dvb_frontend.h"
-
+#else
+#include <media/dvb_frontend.h>
+#endif
 #include "admtv102.h"
 #include "admtv102_priv.h"
 
@@ -920,19 +924,31 @@ static int admtv102_sleep(struct dvb_frontend *fe)
 	return 0;
 }
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 9, 0)
 static int admtv102_release(struct dvb_frontend *fe)
+#else
+static void admtv102_release(struct dvb_frontend *fe)
+#endif
 {
 	kfree(fe->tuner_priv);
 	fe->tuner_priv = NULL;
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 9, 0)
 	return 0;
+#endif
 }
 
 static const struct dvb_tuner_ops admtv102_tuner_ops = {
 	.info = {
 		.name           = "Analog Device ADMTV102",
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 18, 0)
 		.frequency_min  =  48000000,
 		.frequency_max  = 860000000,
 		.frequency_step =     50000,
+#else
+		.frequency_min_hz  =  48000000,
+		.frequency_max_hz  = 860000000,
+		.frequency_step_hz =     50000,
+#endif
 	},
 
 	.release       = admtv102_release,
