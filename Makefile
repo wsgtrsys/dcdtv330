@@ -1,6 +1,6 @@
 obj-y := dvb-usb/
 
-KVER ?= $(shell uname -r)  
+KVER ?= $(shell uname -r)
 KDIR := /lib/modules/$(KVER)/build
 
 #KDIR=/root/raspberrypi/linux/
